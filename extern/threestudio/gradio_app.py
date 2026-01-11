@@ -211,7 +211,7 @@ def run(
         # ensure the requested root stays within the base_root
         _ = candidate_root.relative_to(base_root)
         safe_save_root = candidate_root
-    except Exception:
+    except (ValueError, OSError):
         # fall back to the default base_root on invalid or unsafe input
         safe_save_root = base_root
 
